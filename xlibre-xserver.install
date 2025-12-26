@@ -1,0 +1,29 @@
+post_upgrade() {
+  cat <<MSG1
+>>> Version 25.0.0 of the XLibre input/video drivers introduces a change
+    for the versioning scheme:
+
+    * using semantic versioning now
+    * aligning driver versions with Xserver release series
+    * branching per Xserver release series
+
+    The major version - as in the first two digits - of the drivers is
+    the minimum required Xserver release.
+
+MSG1
+}
+
+post_install() {
+  post_upgrade
+  cat <<MSG2
+>>> It is required to replace all installed xf86* xorg driver
+    packages with their xlibre* counterparts before starting
+    xlibre-xsever. So if for example xf86-video-intel has been
+    installed it should be replaced with xlibre-xf86-video-intel.
+
+    For more information about Xlibre on Artix Linux visit our WiKi page:
+        https://wiki.artixlinux.org/Site/XlibreOnArtix
+
+MSG2
+}
+
