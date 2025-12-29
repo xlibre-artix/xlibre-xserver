@@ -1,9 +1,9 @@
-# Maintainer: artist for Artix Linux
+# Maintainer: artist for Artix Linux and XLibre <artist@artixlinux.org> 
 
 pkgbase=xlibre-xserver
 pkgname=($pkgbase $pkgbase-xephyr $pkgbase-xvfb $pkgbase-xnest $pkgbase-common $pkgbase-devel)
 pkgver=25.1.0
-pkgrel=6
+pkgrel=7
 arch=('x86_64')
 license=('LicenseRef-Adobe-Display-PostScript'
          'BSD-3-Clause' 
@@ -27,7 +27,7 @@ makedepends=('xorgproto' 'pixman' 'libx11' 'mesa' 'mesa-libgl'
              'libxmu' 'libxrender' 'libxi' 'libxaw' 'libxtst' 'libxres'
              'xorg-xkbcomp' 'xorg-util-macros' 'xorg-font-util' 'libepoxy'
              'xcb-util' 'xcb-util-image' 'xcb-util-renderutil' 'xcb-util-wm' 'xcb-util-keysyms'
-             'libxshmfence' 'libunwind' 'meson' 'elogind')
+             'libxshmfence' 'libunwind' 'meson' 'dbus')
 source=("${url}/archive/refs/tags/${pkgname}-${pkgver}.tar.gz"
         xvfb-run # with updates from FC master
         xvfb-run.1)
@@ -37,7 +37,7 @@ build() {
   export CXXFLAGS=${CXXFLAGS/-fno-plt}
   export LDFLAGS=${LDFLAGS/-Wl,-z,now}
 
-  artix-meson xserver-${pkgbase}-${pkgver} build \
+  arch-meson xserver-${pkgbase}-${pkgver} build \
     --buildtype=release \
     -D ipv6=true \
     -D xvfb=true \
@@ -45,6 +45,7 @@ build() {
     -D xcsecurity=true \
     -D xorg=true \
     -D xephyr=true \
+    -D xfbdev=true \
     -D glamor=true \
     -D udev=true \
     -D udev_kms=true \
@@ -99,12 +100,11 @@ package_xlibre-xserver() {
   replaces=('glamor-egl' 'xf86-video-modesetting')
   install=xlibre-xserver.install
 
-  _install fakeinstall/usr/bin/{X,Xorg,gtf}
+  _install fakeinstall/usr/bin/{X,Xorg,gtf,Xfbdev}
   _install fakeinstall/usr/lib/Xorg{,.wrap}
   _install fakeinstall/usr/lib/xorg/modules/*
-  _install fakeinstall/usr/share/X11/xorg.conf.d/10-nvidia.conf
-  _install fakeinstall/usr/share/X11/xorg.conf.d/10-quirks.conf
-  _install fakeinstall/usr/share/man/man1/{Xorg,Xorg.wrap,gtf}.1
+  _install fakeinstall/usr/share/X11/xorg.conf.d/10-{nvidia,quirks}.conf
+  _install fakeinstall/usr/share/man/man1/{Xorg,Xorg.wrap,gtf,Xfbdev}.1
   _install fakeinstall/usr/share/man/man4/{exa,fbdevhw,inputtestdrv,modesetting}.4
   _install fakeinstall/usr/share/man/man5/{Xwrapper.config,xorg.conf,xorg.conf.d}.5
 
@@ -169,9 +169,8 @@ package_xlibre-xserver-devel() {
   conflicts=('xorg-server-devel')
 
   _install fakeinstall/usr/include/xorg/*
-  _install fakeinstall/usr/lib/pkgconfig/xorg-server.pc
+  _install fakeinstall/usr/lib/pkgconfig/{xorg,xlibre}-server.pc
   _install fakeinstall/usr/share/aclocal/xorg-server.m4
-  _install fakeinstall/usr/lib/pkgconfig/xlibre-server.pc
 
   install -m644 -Dt "${pkgdir}/usr/share/licenses/${pkgname}" "xserver-${pkgbase}-${pkgver}"/COPYING
 

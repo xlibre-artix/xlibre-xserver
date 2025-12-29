@@ -1,9 +1,9 @@
 ---
-version: 25.1.0-6
+version: 25.1.0-7
 pkgbase:
   name: xlibre-xserver
   pkgver: 25.1.0
-  pkgrel: 6
+  pkgrel: 7
   url: https://github.com/X11Libre/xserver
   arch:
     - x86_64
@@ -54,7 +54,7 @@ pkgbase:
     - libxshmfence
     - libunwind
     - meson
-    - elogind
+    - dbus
   source:
     - https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-25.1.0.tar.gz
     - xvfb-run
