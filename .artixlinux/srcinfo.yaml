@@ -1,12 +1,13 @@
 ---
-version: 25.1.0-7
+version: 25.1.0-8
 pkgbase:
   name: xlibre-xserver
   pkgver: 25.1.0
-  pkgrel: 7
+  pkgrel: 8
   url: https://github.com/X11Libre/xserver
   arch:
     - x86_64
+    - aarch64
   groups:
     - xlibre
   license:
