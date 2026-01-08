@@ -2,7 +2,7 @@
 
 pkgbase=xlibre-xserver
 pkgname=($pkgbase $pkgbase-xephyr $pkgbase-xvfb $pkgbase-xnest $pkgbase-common $pkgbase-devel)
-pkgver=25.0.0.19
+pkgver=25.0.0.20
 pkgrel=1
 arch=('x86_64')
 license=('LicenseRef-Adobe-Display-PostScript'
@@ -188,6 +188,6 @@ package_xlibre-xserver-devel() {
   # make sure there are no files left to install
   find fakeinstall -depth -print0 | xargs -0 rmdir
 }
-sha256sums=('899c84a81b7ce27b4b15c631ee440f75fb74e51c4223fcf978cbc9765f3abc0f'
+sha256sums=('6f46fdd12df7204d468fe4bb414e332fa136463cfdf786056e9ad90645daadb4'
             '27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db'
             '2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776')
