@@ -1,14 +1,16 @@
 post_upgrade() {
   cat <<MSG1
->>> Version 25.0.0 of the XLibre input/video drivers introduces a change
-    for the versioning scheme:
+>>> From xlibre-xserver 25.0.0.16 on this is no longer needed.
 
-    * using semantic versioning now
-    * aligning driver versions with Xserver release series
-    * branching per Xserver release series
+    Closed source drivers - like those from Nvidia - might not
+    have an updated ABI version to match xlibre-xserver.
+    To prevent problems with these drivers create this file:
 
-    The major version - as in the first two digits - of the drivers is
-    the minimum required Xserver release.
+    /etc/X11/xorg.conf.d/xlibre.conf
+
+    Section "ServerFlags"
+        Option "IgnoreABI" "true"
+    EndSection
 
 MSG1
 }

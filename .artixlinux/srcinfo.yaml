@@ -1,13 +1,12 @@
 ---
-version: 25.1.0-8
+version: 25.0.0.19-1
 pkgbase:
   name: xlibre-xserver
-  pkgver: 25.1.0
-  pkgrel: 8
+  pkgver: 25.0.0.19
+  pkgrel: 1
   url: https://github.com/X11Libre/xserver
   arch:
     - x86_64
-    - aarch64
   groups:
     - xlibre
   license:
@@ -32,6 +31,7 @@ pkgbase:
     - libx11
     - mesa
     - mesa-libgl
+    - xtrans
     - libxkbfile
     - libxfont2
     - libpciaccess
@@ -54,14 +54,14 @@ pkgbase:
     - xcb-util-keysyms
     - libxshmfence
     - libunwind
+    - elogind
     - meson
-    - dbus
   source:
-    - https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-25.1.0.tar.gz
+    - https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-25.0.0.19.tar.gz
     - xvfb-run
     - xvfb-run.1
   sha256sums:
-    - b46fe85e306821504a5e0e91aa0d8d54ce7ddfb67106c495a6ca5ac2c3e28f06
+    - 899c84a81b7ce27b4b15c631ee440f75fb74e51c4223fcf978cbc9765f3abc0f
     - 27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db
     - 2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776
 pkgname:
@@ -69,7 +69,7 @@ pkgname:
     pkgdesc: XLibre fork of X.Org X server
     install: xlibre-xserver.install
     depends:
-      - xlibre-xserver-common=25.1.0
+      - xlibre-xserver-common
       - xlibre-input-libinput
       - libepoxy
       - libxfont2
@@ -88,6 +88,9 @@ pkgname:
       - libdrm
       - libxshmfence
       - libxcvt
+    optdepends:
+      - '12to11: Tool for running Wayland applications on XLibre'
+      - 'kwin-x11-lite: kwin-x11 with ports from kwin-wayland, bug fixes, and maybe other improvements, for XLibre'
     provides:
       - xorg-server
       - X-ABI-VIDEODRV_VERSION=28.0
@@ -106,7 +109,8 @@ pkgname:
   - name: xlibre-xserver-xephyr
     pkgdesc: XLibre fork of X.Org nested X server that runs as an X application
     depends:
-      - xlibre-xserver-common=25.1.0
+      - xlibre-xserver-common
+      - X-ABI-XINPUT_VERSION=26.0
       - libxfont2
       - libgl
       - libepoxy
@@ -134,7 +138,8 @@ pkgname:
       - MIT
       - GPL-2.0-only
     depends:
-      - xlibre-xserver-common=25.1.0
+      - xlibre-xserver-common
+      - X-ABI-XINPUT_VERSION=26.0
       - libxfont2
       - libunwind
       - pixman
@@ -153,7 +158,8 @@ pkgname:
   - name: xlibre-xserver-xnest
     pkgdesc: XLibre fork of X.Org nested X server that runs as an X application
     depends:
-      - xlibre-xserver-common=25.1.0
+      - xlibre-xserver-common
+      - X-ABI-XINPUT_VERSION=26.0
       - libxfont2
       - libunwind
       - libxext
@@ -178,10 +184,12 @@ pkgname:
       - xorg-server-common
     conflicts:
       - xorg-server-common
+      - xorg-server<25.0.0.19
   - name: xlibre-xserver-devel
     pkgdesc: XLibre fork of X.Org development files for the X.Org X server
     depends:
-      - xlibre-xserver=25.1.0
+      - xlibre-xserver
+      - X-ABI-XINPUT_VERSION=26.0
       - xorgproto
       - mesa
       - libpciaccess
