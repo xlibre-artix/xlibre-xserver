@@ -1,9 +1,9 @@
 # Maintainer: artist for Artix Linux and XLibre <artist@artixlinux.org> 
 
 pkgbase=xlibre-xserver
-pkgname=($pkgbase $pkgbase-xephyr $pkgbase-xvfb $pkgbase-xnest $pkgbase-common $pkgbase-devel)
+pkgname=($pkgbase $pkgbase-xephyr $pkgbase-xvfb $pkgbase-xnest $pkgbase-common $pkgbase-devel $pkgbase-src)
 pkgver=25.1.1
-pkgrel=1
+pkgrel=2
 arch=(x86_64 aarch64)
 license=('LicenseRef-Adobe-Display-PostScript'
          'BSD-3-Clause' 
@@ -202,6 +202,18 @@ package_xlibre-xserver-devel() {
 
   find fakeinstall -depth -print0 | xargs -0 rmdir
 }
+
+package_xlibre-xserver-src() {
+  pkgdesc="Source files of the XLibre X server"
+
+  install -d "${pkgdir}"/usr/src/
+  cd "${pkgdir}"/usr/src/
+  tar xf "${srcdir}/${pkgbase}-${pkgver}.tar.gz"
+  mv "xserver-${pkgbase}-${pkgver}" ${pkgbase}
+  install -m644 -Dt "${pkgdir}/usr/share/licenses/${pkgname}" "${pkgbase}"/COPYING
+  rm -rf ${pkgbase}/{.*,*.md,COPYING,NEWS,usr/share}
+}
+
 sha256sums=('f1d0ca035758716941786618a230d6ff440655734235c2d427d13cdb410f1beb'
             '27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db'
             '2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776')
