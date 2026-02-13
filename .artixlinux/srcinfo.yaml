@@ -1,9 +1,9 @@
 ---
-version: 25.1.1-2
+version: 25.1.2-1
 pkgbase:
   name: xlibre-xserver
-  pkgver: 25.1.1
-  pkgrel: 2
+  pkgver: 25.1.2
+  pkgrel: 1
   url: https://github.com/X11Libre/xserver
   arch:
     - x86_64
@@ -57,11 +57,11 @@ pkgbase:
     - meson
     - dbus
   source:
-    - https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-25.1.1.tar.gz
+    - https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-25.1.2.tar.gz
     - xvfb-run
     - xvfb-run.1
   sha256sums:
-    - f1d0ca035758716941786618a230d6ff440655734235c2d427d13cdb410f1beb
+    - a5ec231ae78d00aab7edaaf06d6c22fbaf2072eaf6d669a87f491c445efcf57d
     - 27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db
     - 2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776
 pkgname:
@@ -69,7 +69,7 @@ pkgname:
     pkgdesc: XLibre fork of X.Org X server
     install: xlibre-xserver.install
     depends:
-      - xlibre-xserver-common=25.1.1
+      - xlibre-xserver-common=25.1.2
       - xlibre-input-libinput
       - libepoxy
       - libxfont2
@@ -106,7 +106,7 @@ pkgname:
   - name: xlibre-xserver-xephyr
     pkgdesc: XLibre fork of X.Org nested X server that runs as an X application
     depends:
-      - xlibre-xserver-common=25.1.1
+      - xlibre-xserver-common=25.1.2
       - libxfont2
       - libgl
       - libepoxy
@@ -134,7 +134,7 @@ pkgname:
       - MIT
       - GPL-2.0-only
     depends:
-      - xlibre-xserver-common=25.1.1
+      - xlibre-xserver-common=25.1.2
       - libxfont2
       - libunwind
       - pixman
@@ -153,7 +153,7 @@ pkgname:
   - name: xlibre-xserver-xnest
     pkgdesc: XLibre fork of X.Org nested X server that runs as an X application
     depends:
-      - xlibre-xserver-common=25.1.1
+      - xlibre-xserver-common=25.1.2
       - libxfont2
       - libunwind
       - libxext
@@ -181,7 +181,7 @@ pkgname:
   - name: xlibre-xserver-devel
     pkgdesc: XLibre fork of X.Org development files for the X.Org X server
     depends:
-      - xlibre-xserver=25.1.1
+      - xlibre-xserver=25.1.2
       - xorgproto
       - mesa
       - libpciaccess
@@ -193,4 +193,4 @@ pkgname:
       - xorg-server-devel
   - name: xlibre-xserver-src
     pkgdesc: Source files of the XLibre X server
-# generated with artixpkg 0.37.5-1-any
+# generated with artixpkg 0.37.6-1-any
