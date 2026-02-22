@@ -1,8 +1,8 @@
 ---
-version: 25.1.2-1
+version: 25.0.0.21-1
 pkgbase:
   name: xlibre-xserver
-  pkgver: 25.1.2
+  pkgver: 25.0.0.21
   pkgrel: 1
   url: https://github.com/X11Libre/xserver
   arch:
@@ -56,12 +56,13 @@ pkgbase:
     - libunwind
     - meson
     - dbus
+    - xtrans
   source:
-    - https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-25.1.2.tar.gz
+    - https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-25.0.0.21.tar.gz
     - xvfb-run
     - xvfb-run.1
   sha256sums:
-    - a5ec231ae78d00aab7edaaf06d6c22fbaf2072eaf6d669a87f491c445efcf57d
+    - cfc51e68dd812ba658bdd7e1a7eed2f435466e86753aaad2c0daa58d6a6f8358
     - 27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db
     - 2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776
 pkgname:
@@ -69,7 +70,7 @@ pkgname:
     pkgdesc: XLibre fork of X.Org X server
     install: xlibre-xserver.install
     depends:
-      - xlibre-xserver-common=25.1.2
+      - xlibre-xserver-common=25.0.0.21
       - xlibre-input-libinput
       - libepoxy
       - libxfont2
@@ -106,7 +107,7 @@ pkgname:
   - name: xlibre-xserver-xephyr
     pkgdesc: XLibre fork of X.Org nested X server that runs as an X application
     depends:
-      - xlibre-xserver-common=25.1.2
+      - xlibre-xserver-common=25.0.0.21
       - libxfont2
       - libgl
       - libepoxy
@@ -134,7 +135,7 @@ pkgname:
       - MIT
       - GPL-2.0-only
     depends:
-      - xlibre-xserver-common=25.1.2
+      - xlibre-xserver-common=25.0.0.21
       - libxfont2
       - libunwind
       - pixman
@@ -153,7 +154,7 @@ pkgname:
   - name: xlibre-xserver-xnest
     pkgdesc: XLibre fork of X.Org nested X server that runs as an X application
     depends:
-      - xlibre-xserver-common=25.1.2
+      - xlibre-xserver-common=25.0.0.21
       - libxfont2
       - libunwind
       - libxext
@@ -181,7 +182,7 @@ pkgname:
   - name: xlibre-xserver-devel
     pkgdesc: XLibre fork of X.Org development files for the X.Org X server
     depends:
-      - xlibre-xserver=25.1.2
+      - xlibre-xserver=25.0.0.21
       - xorgproto
       - mesa
       - libpciaccess
