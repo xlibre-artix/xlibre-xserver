@@ -2,6 +2,6 @@
 
 import org.artixlinux.RepoPackage
 
-String runOn = 'taurus'
+String runOn = 'orion'
 
 PackagePipeline(new RepoPackage(this), runOn)
