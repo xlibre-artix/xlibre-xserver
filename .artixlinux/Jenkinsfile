@@ -1,3 +1,7 @@
-@Library('artix-ci@taurus') import org.artixlinux.RepoPackage
+@Library('artix-ci@production') _
 
-PackagePipeline(new RepoPackage(this))
+import org.artixlinux.RepoPackage
+
+String runOn = 'taurus'
+
+PackagePipeline(new RepoPackage(this), runOn)
