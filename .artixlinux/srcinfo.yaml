@@ -1,8 +1,8 @@
 ---
-version: 25.1.4-1
+version: 25.1.5-1
 pkgbase:
   name: xlibre-xserver
-  pkgver: 25.1.4
+  pkgver: 25.1.5
   pkgrel: 1
   url: https://github.com/X11Libre/xserver
   arch:
@@ -57,21 +57,19 @@ pkgbase:
     - meson
     - dbus
   source:
-    - https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-25.1.4.tar.gz
+    - https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-25.1.5.tar.gz
     - xvfb-run
     - xvfb-run.1
-    - randr-rrscreen.patch
   sha256sums:
-    - de5f19fe9ea5a020db6fc114195b6dd1c4106d5796d2259a78b9e74d363b265a
+    - 7ee3612e7674595d7cef337d6955fddf02e63719cbc2607b29d80a17891eca0e
     - 27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db
     - 2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776
-    - ba5e48e90c2186f239fc87f19e6a0ed810ad358f863b6f9c3272726b502bbe62
 pkgname:
   - name: xlibre-xserver
     pkgdesc: XLibre fork of X.Org X server
     install: xlibre-xserver.install
     depends:
-      - xlibre-xserver-common=25.1.4
+      - xlibre-xserver-common=25.1.5
       - xlibre-input-libinput
       - libepoxy
       - libxfont2
@@ -108,7 +106,7 @@ pkgname:
   - name: xlibre-xserver-xephyr
     pkgdesc: XLibre fork of X.Org nested X server that runs as an X application
     depends:
-      - xlibre-xserver-common=25.1.4
+      - xlibre-xserver-common=25.1.5
       - libxfont2
       - libgl
       - libepoxy
@@ -136,7 +134,7 @@ pkgname:
       - MIT
       - GPL-2.0-only
     depends:
-      - xlibre-xserver-common=25.1.4
+      - xlibre-xserver-common=25.1.5
       - libxfont2
       - libunwind
       - pixman
@@ -155,7 +153,7 @@ pkgname:
   - name: xlibre-xserver-xnest
     pkgdesc: XLibre fork of X.Org nested X server that runs as an X application
     depends:
-      - xlibre-xserver-common=25.1.4
+      - xlibre-xserver-common=25.1.5
       - libxfont2
       - libunwind
       - libxext
@@ -183,7 +181,7 @@ pkgname:
   - name: xlibre-xserver-devel
     pkgdesc: XLibre fork of X.Org development files for the X.Org X server
     depends:
-      - xlibre-xserver=25.1.4
+      - xlibre-xserver=25.1.5
       - xorgproto
       - mesa
       - libpciaccess

@@ -2,7 +2,7 @@
 
 pkgbase=xlibre-xserver
 pkgname=($pkgbase $pkgbase-xephyr $pkgbase-xvfb $pkgbase-xnest $pkgbase-common $pkgbase-devel $pkgbase-src)
-pkgver=25.1.4
+pkgver=25.1.5
 pkgrel=1
 arch=(x86_64 aarch64)
 license=('LicenseRef-Adobe-Display-PostScript'
@@ -30,13 +30,7 @@ makedepends=('xorgproto' 'pixman' 'libx11' 'mesa' 'mesa-libgl'
              'libxshmfence' 'libunwind' 'meson' 'dbus')
 source=("${url}/archive/refs/tags/${pkgname}-${pkgver}.tar.gz"
         xvfb-run # with updates from FC master
-        xvfb-run.1
-        randr-rrscreen.patch)
-
-prepare() {
-  cd xserver-${pkgbase}-${pkgver}
-  patch -Np1 -i ../randr-rrscreen.patch
-}
+        xvfb-run.1)
 
 build() {
   case "$CARCH" in
@@ -220,7 +214,6 @@ package_xlibre-xserver-src() {
   rm -rf ${pkgbase}/{.*,*.md,COPYING,NEWS,usr/share}
 }
 
-sha256sums=('de5f19fe9ea5a020db6fc114195b6dd1c4106d5796d2259a78b9e74d363b265a'
+sha256sums=('7ee3612e7674595d7cef337d6955fddf02e63719cbc2607b29d80a17891eca0e'
             '27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db'
-            '2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776'
-            'ba5e48e90c2186f239fc87f19e6a0ed810ad358f863b6f9c3272726b502bbe62')
+            '2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776')
