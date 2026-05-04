@@ -1,12 +1,12 @@
 ---
 team: world
 actions:
-  addRepo: world-goblins
-  removeRepo: null
-  triggersBuild: true
+  addRepo: null
+  removeRepo: world-gremlins
+  triggersBuild: false
   triggersRebuild: false
-  triggersRepoAdd: true
-  triggersRepoRemove: false
+  triggersRepoAdd: false
+  triggersRepoRemove: true
   triggersNoCheck: false
 repos:
   system-goblins:
@@ -33,15 +33,8 @@ repos:
       - xlibre-xserver-src-25.0.0.22-2-x86_64.pkg.tar.zst
     debug: []
   world-gremlins:
-    version: 25.1.5-2
-    packages:
-      - xlibre-xserver-25.1.5-2-x86_64.pkg.tar.zst
-      - xlibre-xserver-xephyr-25.1.5-2-x86_64.pkg.tar.zst
-      - xlibre-xserver-xvfb-25.1.5-2-x86_64.pkg.tar.zst
-      - xlibre-xserver-xnest-25.1.5-2-x86_64.pkg.tar.zst
-      - xlibre-xserver-common-25.1.5-2-x86_64.pkg.tar.zst
-      - xlibre-xserver-devel-25.1.5-2-x86_64.pkg.tar.zst
-      - xlibre-xserver-src-25.1.5-2-x86_64.pkg.tar.zst
+    version: null
+    packages: []
     debug: []
   world:
     version: 25.0.0.22-1
