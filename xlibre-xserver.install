@@ -1,11 +1,6 @@
 post_install() {
   cat <<MSG1
->>> It is required to replace all installed xf86* xorg driver
-    packages with their xlibre* counterparts before starting
-    xlibre-xsever. So if for example xf86-video-intel has been
-    installed it should be replaced with xlibre-video-intel.
-
-    For more information about Xlibre on Artix Linux visit our WiKi page:
+>>> For more information about Xlibre on Artix Linux visit our WiKi page:
         https://wiki.artixlinux.org/Site/XlibreOnArtix
 
 MSG1
