@@ -1,9 +1,9 @@
 ---
-version: 25.0.0.22-3
+version: 25.0.0.22-4
 pkgbase:
   name: xlibre-xserver
   pkgver: 25.0.0.22
-  pkgrel: 3
+  pkgrel: 4
   url: https://github.com/X11Libre/xserver
   arch:
     - x86_64
