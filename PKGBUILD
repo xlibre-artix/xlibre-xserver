@@ -2,8 +2,8 @@
 
 pkgbase=xlibre-xserver
 pkgname=($pkgbase $pkgbase-xephyr $pkgbase-xvfb $pkgbase-xnest $pkgbase-common $pkgbase-devel $pkgbase-src)
-pkgver=25.0.0.22
-pkgrel=4
+pkgver=25.0.0.23
+pkgrel=1
 arch=(x86_64 aarch64)
 license=('LicenseRef-Adobe-Display-PostScript'
          'BSD-3-Clause' 
@@ -31,14 +31,10 @@ makedepends=('xorgproto' 'pixman' 'libx11' 'mesa' 'mesa-libgl'
 source=("${url}/archive/refs/tags/${pkgname}-${pkgver}.tar.gz"
         xvfb-run # with updates from FC master
         xvfb-run.1
-        randr-rrscreen.patch
-        vm-extreme-slowness.patch
         vm-cursorpitch-quirks.patch)
 
 prepare() {
   cd xserver-${pkgbase}-${pkgver}
-  patch -Np1 -i ../randr-rrscreen.patch
-  patch -Np1 -i ../vm-extreme-slowness.patch   #2148 47c25e0837126aa25686ab7b85f02200289e908d
   patch -Np1 -i ../vm-cursorpitch-quirks.patch
 }
 
@@ -221,9 +217,7 @@ package_xlibre-xserver-src() {
   rm -rf ${pkgbase}/{.*,*.md,COPYING,NEWS,usr/share}
 }
 
-sha256sums=('fb589c9c4fdd84871d14349658324c2e267f56aefb1790c17296be1af56d3101'
+sha256sums=('191d001503bd401ee563f2e514426fcd6ef56d68be98c6353efabfc6a032b5b4'
             '27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db'
             '2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776'
-            'ba5e48e90c2186f239fc87f19e6a0ed810ad358f863b6f9c3272726b502bbe62'
-            'b6b4b3edfef92fb5b1e4b30642e8ac84a0e30d14fa0b993cea4f94c43501a169'
             '38dd4004c29010304ebd4077a445171fee0f28d6e7023687f32f52f6215459c9')

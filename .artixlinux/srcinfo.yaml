@@ -1,9 +1,9 @@
 ---
-version: 25.0.0.22-4
+version: 25.0.0.23-1
 pkgbase:
   name: xlibre-xserver
-  pkgver: 25.0.0.22
-  pkgrel: 4
+  pkgver: 25.0.0.23
+  pkgrel: 1
   url: https://github.com/X11Libre/xserver
   arch:
     - x86_64
@@ -58,25 +58,21 @@ pkgbase:
     - dbus
     - xtrans
   source:
-    - https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-25.0.0.22.tar.gz
+    - https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-25.0.0.23.tar.gz
     - xvfb-run
     - xvfb-run.1
-    - randr-rrscreen.patch
-    - vm-extreme-slowness.patch
     - vm-cursorpitch-quirks.patch
   sha256sums:
-    - fb589c9c4fdd84871d14349658324c2e267f56aefb1790c17296be1af56d3101
+    - 191d001503bd401ee563f2e514426fcd6ef56d68be98c6353efabfc6a032b5b4
     - 27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db
     - 2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776
-    - ba5e48e90c2186f239fc87f19e6a0ed810ad358f863b6f9c3272726b502bbe62
-    - b6b4b3edfef92fb5b1e4b30642e8ac84a0e30d14fa0b993cea4f94c43501a169
     - 38dd4004c29010304ebd4077a445171fee0f28d6e7023687f32f52f6215459c9
 pkgname:
   - name: xlibre-xserver
     pkgdesc: XLibre fork of X.Org X server
     install: xlibre-xserver.install
     depends:
-      - xlibre-xserver-common=25.0.0.22
+      - xlibre-xserver-common=25.0.0.23
       - xlibre-input-libinput
       - libepoxy
       - libxfont2
@@ -113,7 +109,7 @@ pkgname:
   - name: xlibre-xserver-xephyr
     pkgdesc: XLibre fork of X.Org nested X server that runs as an X application
     depends:
-      - xlibre-xserver-common=25.0.0.22
+      - xlibre-xserver-common=25.0.0.23
       - libxfont2
       - libgl
       - libepoxy
@@ -141,7 +137,7 @@ pkgname:
       - MIT
       - GPL-2.0-only
     depends:
-      - xlibre-xserver-common=25.0.0.22
+      - xlibre-xserver-common=25.0.0.23
       - libxfont2
       - libunwind
       - pixman
@@ -160,7 +156,7 @@ pkgname:
   - name: xlibre-xserver-xnest
     pkgdesc: XLibre fork of X.Org nested X server that runs as an X application
     depends:
-      - xlibre-xserver-common=25.0.0.22
+      - xlibre-xserver-common=25.0.0.23
       - libxfont2
       - libunwind
       - libxext
@@ -188,7 +184,7 @@ pkgname:
   - name: xlibre-xserver-devel
     pkgdesc: XLibre fork of X.Org development files for the X.Org X server
     depends:
-      - xlibre-xserver=25.0.0.22
+      - xlibre-xserver=25.0.0.23
       - xorgproto
       - mesa
       - libpciaccess
