@@ -1,5 +1,5 @@
 --- a/hw/xfree86/drivers/modesetting/drmmode_display.c	2026-05-24 15:30:26.390345661 +0200
-+++ b/hw/xfree86/drivers/modesetting/drmmode_display.c	2026-05-24 15:31:04.132198083 +0200
++++ b/hw/xfree86/drivers/modesetting/drmmode_display.c	2026-05-25 11:52:32.996610477 +0200
 @@ -4373,6 +4373,40 @@
  #endif
  }
@@ -41,7 +41,7 @@
  static void drmmode_probe_cursor_size(xf86CrtcPtr crtc)
  {
      modesettingPtr ms = modesettingPTR(crtc->scrn);
-@@ -4384,39 +4418,43 @@
+@@ -4384,42 +4418,45 @@
      ms->min_cursor_width = ms->max_cursor_width;
      ms->min_cursor_height = ms->max_cursor_height;
  
@@ -112,6 +112,10 @@
 -            ms->min_cursor_height = height;
 -            break;
 -        }
++      drmModeSetCursor2(drmmode->fd, drmmode_crtc->mode_crtc->crtc_id, 0, 0, 0, 0, 0);
      }
+-
+-    drmModeSetCursor2(drmmode->fd, drmmode_crtc->mode_crtc->crtc_id, 0, 0, 0, 0, 0);
+ }
  
-     drmModeSetCursor2(drmmode->fd, drmmode_crtc->mode_crtc->crtc_id, 0, 0, 0, 0, 0);
+ /* create front and cursor BOs */
