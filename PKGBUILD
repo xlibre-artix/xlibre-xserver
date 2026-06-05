@@ -199,6 +199,8 @@ package_xlibre-xserver-devel() {
 
   install -m644 -Dt "${pkgdir}/usr/share/licenses/${pkgname}" "xserver-${pkgbase}-${pkgver}"/COPYING
 
+  rm fakeinstall/etc/X11/xorg.conf.d/10-nvidia.conf.debian
+  rm fakeinstall/etc/X11/xorg.conf.d/10-nvidia-modules.conf.debian
   find fakeinstall -depth -print0 | xargs -0 rmdir
 }
 
