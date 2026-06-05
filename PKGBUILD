@@ -128,7 +128,7 @@ package_xlibre-xserver() {
   _install fakeinstall/usr/bin/{X,Xorg,gtf,Xfbdev}
   _install fakeinstall/usr/lib/Xorg{,.wrap}
   _install fakeinstall/usr/lib/xorg/modules/*
-  _install fakeinstall/usr/share/X11/xorg.conf.d/10-{nvidia,quirks}.conf
+  _install fakeinstall/usr/share/X11/xorg.conf.d/10-{nvidia,nvidia-modules,quirks}.conf
   _install fakeinstall/usr/share/man/man1/{Xorg,Xorg.wrap,gtf,Xfbdev}.1
   _install fakeinstall/usr/share/man/man4/{exa,fbdevhw,inputtestdrv,modesetting}.4
   _install fakeinstall/usr/share/man/man5/{Xwrapper.config,xorg.conf,xorg.conf.d}.5
