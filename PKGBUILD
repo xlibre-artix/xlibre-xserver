@@ -31,11 +31,11 @@ makedepends=('xorgproto' 'pixman' 'libx11' 'mesa' 'mesa-libgl'
 source=("${url}/archive/refs/tags/${pkgbase}-${pkgver}.tar.gz"
         xvfb-run # with updates from FC master
         xvfb-run.1
-        a86be24e6e34d916f63f50b51bb57624e37c068c.patch)
+        e30b1da2045f9dce46ea1450cc3af4955723cce5.patch)
 
 prepare() {
   cd xserver-${pkgbase}-${pkgver}
-  patch -Np1 -i ../a86be24e6e34d916f63f50b51bb57624e37c068c.patch
+  patch -Np1 -i ../e30b1da2045f9dce46ea1450cc3af4955723cce5.patch
 }
 
 build() {
@@ -224,5 +224,5 @@ package_xlibre-xserver-src() {
 sha256sums=('f03fe4a7b1a060ca5100b6e71537bcfe88a998ef9f7a3a8c094e3005d7203276'
             '27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db'
             '2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776'
-            '1789f4ef32f6eb785746a91df033631385aaa43921311851ff361ebd897a7128')
+            'd3de51b441f2d76b718ce8ec24fc7a6d43e5e0b542a6e163769443fbc9578bb7')
  
