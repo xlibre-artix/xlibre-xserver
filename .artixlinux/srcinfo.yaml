@@ -1,9 +1,9 @@
 ---
-version: 25.1.6-1
+version: 25.1.6-2
 pkgbase:
   name: xlibre-xserver
   pkgver: 25.1.6
-  pkgrel: 1
+  pkgrel: 2
   url: https://github.com/X11Libre/xserver
   arch:
     - x86_64
@@ -60,10 +60,12 @@ pkgbase:
     - https://github.com/X11Libre/xserver/archive/refs/tags/xlibre-xserver-25.1.6.tar.gz
     - xvfb-run
     - xvfb-run.1
+    - a86be24e6e34d916f63f50b51bb57624e37c068c.patch
   sha256sums:
     - f03fe4a7b1a060ca5100b6e71537bcfe88a998ef9f7a3a8c094e3005d7203276
     - 27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db
     - 2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776
+    - 1789f4ef32f6eb785746a91df033631385aaa43921311851ff361ebd897a7128
 pkgname:
   - name: xlibre-xserver
     pkgdesc: XLibre fork of X.Org X server
