@@ -1,0 +1,21 @@
+--- a/randr/rrscreen.c	2026-06-18 13:09:19.793226028 +0200
++++ b/randr/rrscreen.c	2026-06-18 13:09:29.881930082 +0200
+@@ -274,13 +274,14 @@
+ 
+         if (!RRCrtcIsLeased(crtc) && mode) {
+             struct pixman_box16 display_box = {
+-                0, 0,
+-                mode->mode.width,
+-                mode->mode.height
++                crtc->x, crtc->y,
++                crtc->x + mode->mode.width,
++                crtc->y + mode->mode.height
+             };
+             pixman_f_transform_bounds(&crtc->f_transform, &display_box);
+ 
+-            if (display_box.x2 > stuff->width || display_box.y2 > stuff->height)
++            if (crtc->x + mode->mode.width > stuff->width ||
++                crtc->y + mode->mode.height > stuff->height)
+                 return BadMatch;
+         }
+     }
