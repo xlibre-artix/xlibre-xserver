@@ -3,7 +3,7 @@
 pkgbase=xlibre-xserver
 pkgname=($pkgbase $pkgbase-xephyr $pkgbase-xvfb $pkgbase-xnest $pkgbase-common $pkgbase-devel $pkgbase-src)
 pkgver=25.1.7
-pkgrel=1.2
+pkgrel=2
 arch=(x86_64 aarch64)
 license=('LicenseRef-Adobe-Display-PostScript'
          'BSD-3-Clause' 
@@ -30,7 +30,13 @@ makedepends=('xorgproto' 'pixman' 'libx11' 'mesa' 'mesa-libgl'
              'libxshmfence' 'libunwind' 'meson' 'dbus')
 source=("${url}/archive/refs/tags/${pkgbase}-${pkgver}.tar.gz"
         xvfb-run # with updates from FC master
-        xvfb-run.1)
+        xvfb-run.1
+        xinput-transformation-fix.patch)
+
+prepare() {
+  cd xserver-${pkgbase}-${pkgver}
+  patch -Np1 -i ../xinput-transformation-fix.patch
+}
 
 build() {
   case "$CARCH" in
@@ -217,5 +223,6 @@ package_xlibre-xserver-src() {
 
 sha256sums=('f1c93df3973e1ddc0aecf498666c8d308584728a9b5cd76551b53288c4ee9f7f'
             '27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db'
-            '2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776')
+            '2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776'
+            '4719e8a401333f2da0320e19410b313ff97d06672bcc2fabc4afe9535eab1a40')
  

@@ -1,0 +1,38 @@
+--- a/Xi/xiproperty.c	2026-06-18 19:13:31.797602955 +0200
++++ b/Xi/xiproperty.c	2026-06-18 19:17:13.271235054 +0200
+@@ -876,17 +876,6 @@
+         swapl(&stuff->nUnits);
+     }
+ 
+-    switch (stuff->format) {
+-    case 8:
+-        break;
+-    case 16:
+-        SwapRestS(stuff);
+-        break;
+-    case 32:
+-        SwapRestL(stuff);
+-        break;
+-    }
+-
+     DeviceIntPtr dev;
+     unsigned long len;
+     uint64_t totalSize;
+@@ -1067,17 +1056,6 @@
+         swapl(&stuff->num_items);
+     }
+ 
+-    switch (stuff->format) {
+-    case 8:
+-        break;
+-    case 16:
+-        SwapRestS(stuff);
+-        break;
+-    case 32:
+-        SwapRestL(stuff);
+-        break;
+-    }
+-
+     int rc;
+     DeviceIntPtr dev;
+     uint64_t totalSize;
