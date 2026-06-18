@@ -2,8 +2,8 @@
 
 pkgbase=xlibre-xserver
 pkgname=($pkgbase $pkgbase-xephyr $pkgbase-xvfb $pkgbase-xnest $pkgbase-common $pkgbase-devel $pkgbase-src)
-pkgver=25.1.6
-pkgrel=2
+pkgver=25.1.7
+pkgrel=1
 arch=(x86_64 aarch64)
 license=('LicenseRef-Adobe-Display-PostScript'
          'BSD-3-Clause' 
@@ -30,13 +30,7 @@ makedepends=('xorgproto' 'pixman' 'libx11' 'mesa' 'mesa-libgl'
              'libxshmfence' 'libunwind' 'meson' 'dbus')
 source=("${url}/archive/refs/tags/${pkgbase}-${pkgver}.tar.gz"
         xvfb-run # with updates from FC master
-        xvfb-run.1
-        e30b1da2045f9dce46ea1450cc3af4955723cce5.patch)
-
-prepare() {
-  cd xserver-${pkgbase}-${pkgver}
-  patch -Np1 -i ../e30b1da2045f9dce46ea1450cc3af4955723cce5.patch
-}
+        xvfb-run.1)
 
 build() {
   case "$CARCH" in
@@ -221,8 +215,7 @@ package_xlibre-xserver-src() {
   rm -rf ${pkgbase}/{.*,*.md,COPYING,NEWS,usr/share}
 }
 
-sha256sums=('f03fe4a7b1a060ca5100b6e71537bcfe88a998ef9f7a3a8c094e3005d7203276'
+sha256sums=('f1c93df3973e1ddc0aecf498666c8d308584728a9b5cd76551b53288c4ee9f7f'
             '27ce50f4432e5549e662db857118761fa9cd74c6900aac52c4db768c956838db'
-            '2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776'
-            'd3de51b441f2d76b718ce8ec24fc7a6d43e5e0b542a6e163769443fbc9578bb7')
+            '2460adccd3362fefd4cdc5f1c70f332d7b578091fb9167bf88b5f91265bbd776')
  
