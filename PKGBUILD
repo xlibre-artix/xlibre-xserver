@@ -8,7 +8,7 @@ pkgbase=xlibre-xserver
 pkgname=('xlibre-xserver' 'xlibre-xserver-xephyr' 'xlibre-xserver-xvfb'
          'xlibre-xserver-xnest' 'xlibre-xserver-common' 'xlibre-xserver-devel')
 pkgver=25.1.8
-pkgrel=2
+pkgrel=50
 arch=('x86_64')
 license=('LicenseRef-Adobe-Display-PostScript'
          'BSD-3-Clause'
@@ -33,7 +33,7 @@ makedepends=('xorgproto' 'pixman' 'libx11' 'mesa' 'mesa-libgl'
              'libxmu' 'libxrender' 'libxi' 'libxaw' 'libxtst' 'libxres'
              'xorg-xkbcomp' 'xorg-util-macros' 'xorg-font-util' 'libepoxy'
              'xcb-util' 'xcb-util-image' 'xcb-util-renderutil' 'xcb-util-wm' 'xcb-util-keysyms'
-             'libxshmfence' 'libunwind' 'meson')
+             'libxshmfence' 'libunwind' 'dbus' 'meson')
 source=(https://github.com/X11Libre/xserver/archive/refs/tags/${pkgbase}-"${pkgver}".tar.gz
         xvfb-run # with updates from FC master
         xvfb-run.1
